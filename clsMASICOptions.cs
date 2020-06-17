@@ -585,6 +585,9 @@ namespace MASIC
                 SICOptions.SpectrumSimilarityMinimum = reader.GetParam(
                     XML_SECTION_SIC_OPTIONS, "SpectrumSimilarityMinimum", SICOptions.SpectrumSimilarityMinimum);
 
+                SICOptions.MaxAllowableIonCount = reader.GetParam(
+                    XML_SECTION_SIC_OPTIONS, "MaxAllowableIonCount", SICOptions.MaxAllowableIonCount);
+
                 // Binning Options
                 if (!reader.SectionPresent(XML_SECTION_BINNING_OPTIONS))
                 {
@@ -849,6 +852,8 @@ namespace MASIC
                 writer.SetParam(XML_SECTION_SIC_OPTIONS, "MassSpectraNoiseMinimumSignalToNoiseRatio", SICOptions.SICPeakFinderOptions.MassSpectraNoiseThresholdOptions.MinimumSignalToNoiseRatio);
 
                 writer.SetParam(XML_SECTION_SIC_OPTIONS, "ReplaceSICZeroesWithMinimumPositiveValueFromMSData", SICOptions.ReplaceSICZeroesWithMinimumPositiveValueFromMSData);
+
+                writer.SetParam(XML_SECTION_SIC_OPTIONS, "MaxAllowableIonCount", SICOptions.MaxAllowableIonCount);
 
                 // Similarity Options
                 writer.SetParam(XML_SECTION_SIC_OPTIONS, "SimilarIonMZToleranceHalfWidth", SICOptions.SimilarIonMZToleranceHalfWidth);

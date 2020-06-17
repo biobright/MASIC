@@ -7,14 +7,6 @@ namespace MASIC
 {
     public class clsScanTracking : clsMasicEventNotifier
     {
-        #region "Constants and Enums"
-
-        /// <summary>
-        /// Absolute maximum number of ions that will be tracked for a mass spectrum
-        /// </summary>
-        private const int MAX_ALLOWABLE_ION_COUNT = 50000;
-
-        #endregion
 
         #region "Properties"
 
@@ -32,6 +24,8 @@ namespace MASIC
 
         private int mMaxIonCountReported;
 
+        private int MAX_ALLOWABLE_ION_COUNT;
+
         #endregion
 
         /// <summary>
@@ -39,10 +33,12 @@ namespace MASIC
         /// </summary>
         /// <param name="reporterIons"></param>
         /// <param name="peakFinder"></param>
-        public clsScanTracking(clsReporterIons reporterIons, clsMASICPeakFinder peakFinder)
+        public clsScanTracking(clsReporterIons reporterIons, clsSICOptions sicOptions, clsMASICPeakFinder peakFinder)
         {
             mReporterIons = reporterIons;
             mPeakFinder = peakFinder;
+
+            MAX_ALLOWABLE_ION_COUNT = sicOptions.MaxAllowableIonCount;
 
             ScanStats = new List<ScanStatsEntry>();
         }

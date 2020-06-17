@@ -1717,7 +1717,7 @@ namespace MASIC
                             var parentIonProcessor = new clsParentIonProcessing(Options.ReporterIons);
                             RegisterEvents(parentIonProcessor);
 
-                            var scanTracking = new clsScanTracking(Options.ReporterIons, mMASICPeakFinder);
+                            var scanTracking = new clsScanTracking(Options.ReporterIons, Options.SICOptions, mMASICPeakFinder);
                             RegisterEvents(scanTracking);
 
                             // ---------------------------------------------------------

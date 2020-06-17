@@ -182,6 +182,19 @@
             }
         }
 
+        /// <summary>
+        /// Absolute maximum number of ions that will be tracked for a mass spectrum
+        /// </summary>
+        public int MaxAllowableIonCount
+        {
+            get => mMaxAllowableIonCount;
+            set
+            {
+                mSpectrumSimilarityMinimum = value;
+            }
+
+        }
+
         #endregion
 
         #region "Classwide Variables"
@@ -277,6 +290,7 @@
         private float mSimilarIonMZToleranceHalfWidth = 0.1F;
         private float mSimilarIonToleranceHalfWidthMinutes = 5;
         private float mSpectrumSimilarityMinimum = 0.8F;
+        private int mMaxAllowableIonCount = 50000;
 
         #endregion
     }

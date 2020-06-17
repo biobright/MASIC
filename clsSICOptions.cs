@@ -190,7 +190,7 @@
             get => mMaxAllowableIonCount;
             set
             {
-                mSpectrumSimilarityMinimum = value;
+                mMaxAllowableIonCount = value;
             }
 
         }

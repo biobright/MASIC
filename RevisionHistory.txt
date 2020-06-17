@@ -1,6 +1,6 @@
 MASIC Change Log
 
-Version 3.2.7438-bb; June 17, 2020
+Version 3.2.7465-bb; June 17, 2020
 	- Parametrize MAX_ALLOWABLE_ION_COUNT as XML SICOptions.MaxAllowableIonCount
 
 Version 3.2.7438; May 13, 2020

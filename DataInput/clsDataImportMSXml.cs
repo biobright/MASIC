@@ -10,6 +10,9 @@ using PSI_Interface.CV;
 using PSI_Interface.MSData;
 using ThermoRawFileReader;
 
+// TODO JNJ REMOVE
+using ObjectDumping;
+
 namespace MASIC.DataInput
 {
     /// <summary>
@@ -429,8 +432,8 @@ namespace MASIC.DataInput
 
             try
             {
-                Console.Write("Reading MSXml data file ");
-                ReportMessage("Reading MSXml data file");
+                Console.Write("Reading MZML data file ");
+                ReportMessage("Reading MZML data file");
 
                 UpdateProgress(0, "Opening data file:" + Environment.NewLine + mzMLFile.Name);
 
@@ -446,6 +449,11 @@ namespace MASIC.DataInput
                 // Open a handle to the data file
                 var xmlReader = new SimpleMzMLReader(mzMLFile.FullName, false);
                 fileOpened = true;
+                
+                Console.Write("MZML FileInfo: --------------------------------------------------"+ Environment.NewLine);
+                Console.Write(ObjectDumper.Dump(xmlReader.InstrumentParams[0].UserParams, DumpStyle.CSharp));
+                Console.Write(Environment.NewLine);
+                Console.Write("-----------------------------------------------------------------"+ Environment.NewLine);
 
                 var fileStatsSuccess = UpdateDatasetFileStats(mzMLFile, datasetID, xmlReader);
                 if (!fileStatsSuccess)
